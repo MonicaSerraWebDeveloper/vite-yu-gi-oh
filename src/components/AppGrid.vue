@@ -1,7 +1,12 @@
 <script>
 
+    import AppCard from './AppCard.vue'
+
     export default {
-        name: 'AppGrid'
+        name: 'AppGrid',
+        components: {
+            AppCard
+        }
     }
 
 </script>
@@ -10,7 +15,7 @@
     <div class="bg-container">
         <div class="container">
             <div class="row">
-                <h2>Grid</h2>
+                <AppCard></AppCard>
             </div>
         </div>
     </div>
@@ -18,7 +23,7 @@
 
 <style scoped lang="scss">
     .bg-container {
-        background-color: sandybrown;
+        background-color: #d48f38;
         padding: 50px 0;
 
         .container {
