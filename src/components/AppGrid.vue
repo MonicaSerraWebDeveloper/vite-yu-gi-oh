@@ -1,11 +1,13 @@
 <script>
     import { store } from '../store.js'
     import AppCard from './AppCard.vue'
+    import AppBannerTop from './AppBannerTop.vue'
 
     export default {
         name: 'AppGrid',
         components: {
-            AppCard
+            AppCard,
+            AppBannerTop
         },
         data() {
             return {
@@ -20,6 +22,7 @@
     <div class="bg-container">
         <div class="container">
             <div class="row">
+                <AppBannerTop></AppBannerTop>
                 <AppCard v-for="card in store.cards" :key="card.id" :singleCard="card"></AppCard>
             </div>
         </div>

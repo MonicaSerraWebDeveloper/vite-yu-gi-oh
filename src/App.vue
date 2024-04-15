@@ -7,7 +7,7 @@
   export default {
     components: {
       AppHeader,
-      AppGrid
+      AppGrid,
     },
 
     data() {
