@@ -1,11 +1,16 @@
 <script>
-
+    import { store } from '../store.js'
     import AppCard from './AppCard.vue'
 
     export default {
         name: 'AppGrid',
         components: {
             AppCard
+        },
+        data() {
+            return {
+                store
+            }
         }
     }
 
@@ -15,7 +20,7 @@
     <div class="bg-container">
         <div class="container">
             <div class="row">
-                <AppCard></AppCard>
+                <AppCard v-for="card in store.cards"></AppCard>
             </div>
         </div>
     </div>
@@ -29,6 +34,11 @@
         .container {
             background-color: #fff;
             padding: 30px;
+
+            .row {
+
+            margin: 0 -10px -30px;
         }
     }
+}
 </style>
