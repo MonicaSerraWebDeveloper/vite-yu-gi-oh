@@ -1,6 +1,7 @@
 <script>
   import AppHeader from './components/AppHeader.vue'
   import AppGrid from './components/AppGrid.vue'
+  import AppLoading from './components/AppLoading.vue'
   import { store } from './store.js'
   import axios from 'axios'
 
@@ -8,6 +9,7 @@
     components: {
       AppHeader,
       AppGrid,
+      AppLoading
     },
 
     data() {
@@ -28,7 +30,8 @@
           params: queryParams
         })
         .then((response) => {
-          store.cards = response.data.data
+          store.cards = response.data.data;
+          store.isLoading = false;
         })
       }
     },
@@ -43,7 +46,8 @@
 
   <AppHeader></AppHeader>
   <main>
-    <AppGrid></AppGrid>
+    <AppGrid v-if="store.isLoading === false"></AppGrid>
+    <AppLoading v-else></AppLoading>
   </main>
 
 </template>
