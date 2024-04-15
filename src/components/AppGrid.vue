@@ -20,7 +20,7 @@
     <div class="bg-container">
         <div class="container">
             <div class="row">
-                <AppCard v-for="card in store.cards"></AppCard>
+                <AppCard v-for="card in store.cards" :key="card.id" :singleCard="card"></AppCard>
             </div>
         </div>
     </div>

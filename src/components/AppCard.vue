@@ -13,11 +13,11 @@ export default {
 
     <div class="card">
         <div class="image-container">
-            <img src="https://images.ygoprodeck.com/images/cards_small/34541863.jpg" alt="">
+            <img :src="singleCard.card_images[0].image_url_small" alt="">
         </div>
         <div class="text-container">
-            <h3>Nome carta</h3>
-            <div class="archetipo-text">Archetipo</div>
+            <h3> {{ singleCard.name }} </h3>
+            <div class="archetipo-text">{{ singleCard.archetype }}</div>
         </div>
     </div>
 
