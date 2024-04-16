@@ -2,6 +2,7 @@
   import AppHeader from './components/AppHeader.vue'
   import AppGrid from './components/AppGrid.vue'
   import AppLoading from './components/AppLoading.vue'
+  import AppSelectFilter from './components/AppSelectFilter.vue'
   import { store } from './store.js'
   import axios from 'axios'
 
@@ -9,7 +10,8 @@
     components: {
       AppHeader,
       AppGrid,
-      AppLoading
+      AppLoading,
+      AppSelectFilter
     },
 
     data() {
@@ -38,7 +40,6 @@
     mounted() {
       this.cardsFromApi()
     }
-    
 }
 </script>
 
@@ -46,6 +47,7 @@
 
   <AppHeader></AppHeader>
   <main>
+    <AppSelectFilter></AppSelectFilter>
     <AppGrid v-if="store.isLoading === false"></AppGrid>
     <AppLoading v-else></AppLoading>
   </main>
@@ -54,5 +56,9 @@
 
 <style lang="scss">
   @use './style/generic';
+
+  main {
+    background-color: #d48f38;
+  }
 
 </style>
