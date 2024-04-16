@@ -22,7 +22,6 @@
 
     methods: {
       cardsFromApi() {
-
         const queryParams = {
           num: 20,
           offset: 0
@@ -35,10 +34,19 @@
           store.cards = response.data.data;
           store.isLoading = false;
         })
+      },
+
+      optionFromApi() {
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+        .then((response) => {
+          store.archetypes = response.data
+        })
       }
     },
     mounted() {
       this.cardsFromApi()
+      this.optionFromApi()
+
     }
 }
 </script>

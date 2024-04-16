@@ -1,7 +1,14 @@
 <script>
+    import { store } from '../store.js'
 
     export default {
-        name: 'AppSelectFilter'
+        name: 'AppSelectFilter',
+
+        data() {
+            return {
+                store
+            }
+        }
     }
 
 </script>
@@ -9,9 +16,8 @@
 <template>
     <div class="container">
         <select name="archetype" id="archetype">
-            <option value="test">test</option>
-            <option value="test">test</option>
-            <option value="test">test</option>
+            <option selected value="empty">-- Archetipo --</option>
+            <option v-for="archetype in store.archetypes" value="archetype.archetype_name">{{archetype.archetype_name}}</option>
         </select>
     </div>
 </template>
@@ -27,6 +33,7 @@
             height: 35px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            outline: none;
         }
     }
 </style>
