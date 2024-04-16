@@ -24,8 +24,12 @@
       cardsFromApi() {
         const queryParams = {
           num: 20,
-          offset: 0
+          offset: 0,
         };
+
+        if(store.selectedArchetype !== '') {
+          queryParams.archetype = store.selectedArchetype
+        }
 
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php', {
           params: queryParams
@@ -44,9 +48,9 @@
       }
     },
     mounted() {
-      this.cardsFromApi()
       this.optionFromApi()
-
+      this.cardsFromApi()
+    
     }
 }
 </script>
@@ -55,7 +59,7 @@
 
   <AppHeader></AppHeader>
   <main>
-    <AppSelectFilter></AppSelectFilter>
+    <AppSelectFilter @selectedArchetype="cardsFromApi()"></AppSelectFilter>
     <AppGrid v-if="store.isLoading === false"></AppGrid>
     <AppLoading v-else></AppLoading>
   </main>

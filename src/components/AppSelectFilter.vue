@@ -15,9 +15,13 @@
 
 <template>
     <div class="container">
-        <select name="archetype" id="archetype">
-            <option selected value="empty">-- Archetipo --</option>
-            <option v-for="archetype in store.archetypes" value="archetype.archetype_name">{{archetype.archetype_name}}</option>
+        <select 
+        v-model="store.selectedArchetype" 
+        @change="$emit('selectedArchetype')" 
+        name="archetype" 
+        id="archetype">
+            <option selected value="">-- Archetipo --</option>
+            <option v-for="archetype in store.archetypes" :value="archetype.archetype_name">{{archetype.archetype_name}}</option>
         </select>
     </div>
 </template>
